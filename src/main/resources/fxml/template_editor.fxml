@@ -53,6 +53,9 @@
 
                     <Label text="Email Contact :" GridPane.columnIndex="2" GridPane.rowIndex="4" style="-fx-font-weight: bold;" />
                     <TextField fx:id="emailField" GridPane.columnIndex="3" GridPane.rowIndex="4" styleClass="text-field" />
+
+                    <Label text="Site Web :" GridPane.columnIndex="0" GridPane.rowIndex="5" style="-fx-font-weight: bold;" />
+                    <TextField fx:id="websiteField" GridPane.columnIndex="1" GridPane.rowIndex="5" styleClass="text-field" />
                 </GridPane>
             </VBox>
 
