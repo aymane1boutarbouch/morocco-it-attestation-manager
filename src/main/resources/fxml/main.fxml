@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.moroccoit.attestation.controller.MainController"
+            prefWidth="1250" prefHeight="780">
+
+    <!-- LEFT SIDEBAR -->
+    <left>
+        <VBox prefWidth="250" styleClass="sidebar" spacing="20">
+            <!-- Brand -->
+            <VBox spacing="4">
+                <Label text="MOROCCO IT" styleClass="sidebar-brand" />
+                <Label text="ATTESTATIONS PRO" styleClass="sidebar-subbrand" />
+            </VBox>
+
+            <!-- Divider -->
+            <VBox style="-fx-background-color: rgba(255,255,255,0.1); -fx-min-height: 1px;" />
+
+            <!-- Navigation Links -->
+            <VBox spacing="8" VBox.vgrow="ALWAYS">
+                <Button fx:id="btnDashboard" text="📊  Tableau de Bord" onAction="#openDashboard" styleClass="nav-button" prefWidth="220" />
+                <Button fx:id="btnEmployees" text="👥  Employés &amp; Stagiaires" onAction="#openEmployees" styleClass="nav-button" prefWidth="220" />
+                <Button fx:id="btnGenerator" text="📄  Générer Attestation" onAction="#openGenerator" styleClass="nav-button" prefWidth="220" />
+                <Button fx:id="btnTemplates" text="⚙️  Éditeur de Modèles" onAction="#openTemplates" styleClass="nav-button" prefWidth="220" />
+                <Button fx:id="btnHistory" text="📁  Historique &amp; Archive" onAction="#openHistory" styleClass="nav-button" prefWidth="220" />
+            </VBox>
+
+            <!-- Language & Logout -->
+            <VBox spacing="10">
+                <HBox spacing="8" alignment="CENTER_LEFT">
+                    <Label text="Langue:" style="-fx-text-fill: #94A3B8; -fx-font-size: 11;" />
+                    <Button text="FR" onAction="#toggleLanguageFR" styleClass="button-secondary" style="-fx-padding: 4 10; -fx-font-size: 11;" />
+                    <Button text="AR (العربية)" onAction="#toggleLanguageAR" styleClass="button-secondary" style="-fx-padding: 4 10; -fx-font-size: 11;" />
+                </HBox>
+                <Button text="🚪  Déconnexion" onAction="#handleLogout" styleClass="button-danger" prefWidth="220" />
+            </VBox>
+        </VBox>
+    </left>
+
+    <!-- CENTER AREA -->
+    <center>
+        <VBox spacing="0">
+            <!-- Top Header Bar -->
+            <HBox styleClass="header-bar" alignment="CENTER_LEFT" spacing="20">
+                <Label fx:id="activeViewTitle" text="Tableau de Bord" styleClass="header-title" HBox.hgrow="ALWAYS" />
+
+                <!-- User Badge -->
+                <HBox alignment="CENTER" spacing="10" styleClass="user-badge">
+                    <Label fx:id="userFullNameLabel" text="Aymane BOUTARBOUCH" style="-fx-font-weight: bold; -fx-text-fill: #0F172A;" />
+                    <Label fx:id="userRoleBadge" text=" ADMIN " style="-fx-background-color: #D97706; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 10; -fx-background-radius: 10; -fx-padding: 2 6;" />
+                </HBox>
+            </HBox>
+
+            <!-- Dynamic View Container -->
+            <StackPane fx:id="contentArea" VBox.vgrow="ALWAYS" style="-fx-padding: 25;">
+                <!-- Views are loaded dynamically here -->
+            </StackPane>
+        </VBox>
+    </center>
+
+</BorderPane>

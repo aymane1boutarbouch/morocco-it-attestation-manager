@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.StackPane?>
+
+<StackPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.moroccoit.attestation.controller.LoginController"
+           style="-fx-background-color: #0F172A;">
+
+    <VBox alignment="CENTER" maxWidth="450" spacing="25" styleClass="card"
+          style="-fx-background-color: #FFFFFF; -fx-padding: 40; -fx-background-radius: 16; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 20, 0, 0, 8);">
+
+        <!-- Header Branding -->
+        <VBox alignment="CENTER" spacing="6">
+            <Label text="MOROCCO IT" style="-fx-font-size: 26; -fx-font-weight: bold; -fx-text-fill: #0F172A;" />
+            <Label text="SYSTÈME DE GESTION DES ATTESTATIONS" style="-fx-font-size: 11; -fx-font-weight: bold; -fx-text-fill: #D97706; -fx-letter-spacing: 1px;" />
+            <Label text="Cabinet d'Expertise Comptable &amp; Conseil" style="-fx-font-size: 12; -fx-text-fill: #64748B;" />
+        </VBox>
+
+        <!-- Form Fields -->
+        <VBox spacing="15" alignment="CENTER_LEFT" maxWidth="370">
+            <VBox spacing="6">
+                <Label text="Nom d'utilisateur" style="-fx-font-weight: bold; -fx-text-fill: #334155;" />
+                <TextField fx:id="usernameField" promptText="Saisissez votre identifiant" styleClass="text-field" prefHeight="42" />
+            </VBox>
+
+            <VBox spacing="6">
+                <Label text="Mot de passe" style="-fx-font-weight: bold; -fx-text-fill: #334155;" />
+                <PasswordField fx:id="passwordField" promptText="Saisissez votre mot de passe" styleClass="text-field" prefHeight="42" />
+            </VBox>
+        </VBox>
+
+        <!-- Action Button -->
+        <Button text="Se Connecter à la Plateforme" onAction="#handleLogin"
+                styleClass="button-accent" prefWidth="370" prefHeight="45"
+                style="-fx-font-size: 14; -fx-font-weight: bold;" />
+
+        <!-- Quick Demo Accreditations -->
+        <VBox spacing="8" alignment="CENTER">
+            <Label text="Connexion rapide de démonstration :" style="-fx-font-size: 11; -fx-text-fill: #94A3B8;" />
+            <HBox spacing="10" alignment="CENTER">
+                <Button text="🔑 Admin Système" onAction="#fillAdminDemo" styleClass="button-secondary" style="-fx-font-size: 11; -fx-padding: 6 12;" />
+                <Button text="👥 Responsable RH" onAction="#fillRhDemo" styleClass="button-secondary" style="-fx-font-size: 11; -fx-padding: 6 12;" />
+            </HBox>
+        </VBox>
+
+        <Label text="© 2026 Morocco IT S.A.R.L. Tous droits réservés." style="-fx-font-size: 10; -fx-text-fill: #CBD5E1;" />
+    </VBox>
+
+</StackPane>

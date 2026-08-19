@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.moroccoit.attestation.controller.DashboardController"
+      spacing="25">
+
+    <!-- KPI STATS CARDS -->
+    <GridPane hgap="20" vgap="20">
+        <!-- Card 1: Total Employees -->
+        <VBox styleClass="card" spacing="8" GridPane.columnIndex="0" GridPane.rowIndex="0" prefWidth="240">
+            <Label text="EMPLOYÉS ACTIFS" styleClass="stat-label" />
+            <Label fx:id="totalEmployeesLabel" text="0" styleClass="stat-value" />
+            <Label text="👥 Effectif sous contrat CDI/CDD" style="-fx-font-size: 11; -fx-text-fill: #10B981;" />
+        </VBox>
+
+        <!-- Card 2: Total Interns -->
+        <VBox styleClass="card" spacing="8" GridPane.columnIndex="1" GridPane.rowIndex="0" prefWidth="240">
+            <Label text="STAGIAIRES EN COURS" styleClass="stat-label" />
+            <Label fx:id="totalInternsLabel" text="0" styleClass="stat-value" style="-fx-text-fill: #D97706;" />
+            <Label text="🎓 Convention de Stage PFE/PFE" style="-fx-font-size: 11; -fx-text-fill: #D97706;" />
+        </VBox>
+
+        <!-- Card 3: Total PDFs Generated -->
+        <VBox styleClass="card" spacing="8" GridPane.columnIndex="2" GridPane.rowIndex="0" prefWidth="240">
+            <Label text="ATTESTATIONS GÉNÉRÉES" styleClass="stat-label" />
+            <Label fx:id="totalPdfsGeneratedLabel" text="0" styleClass="stat-value" style="-fx-text-fill: #2563EB;" />
+            <Label text="📄 Total documents archivés" style="-fx-font-size: 11; -fx-text-fill: #2563EB;" />
+        </VBox>
+
+        <!-- Card 4: Today's PDFs -->
+        <VBox styleClass="card" spacing="8" GridPane.columnIndex="3" GridPane.rowIndex="0" prefWidth="240">
+            <Label text="DÉLIVRÉES AUJOURD'HUI" styleClass="stat-label" />
+            <Label fx:id="todayPdfsLabel" text="0" styleClass="stat-value" style="-fx-text-fill: #059669;" />
+            <Label text="⚡ Mises à jour en temps réel" style="-fx-font-size: 11; -fx-text-fill: #059669;" />
+        </VBox>
+    </GridPane>
+
+    <!-- CONTENT GRID (Recent Activity Table + Chart) -->
+    <HBox spacing="25" VBox.vgrow="ALWAYS">
+        <!-- Recent Attestations Activity -->
+        <VBox styleClass="card" spacing="15" HBox.hgrow="ALWAYS">
+            <Label text="Activité Récente des Attestations" styleClass="card-title" />
+            <TableView fx:id="recentActivityTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colRef" text="Référence N°" prefWidth="130" />
+                    <TableColumn fx:id="colType" text="Type d'Attestation" prefWidth="160" />
+                    <TableColumn fx:id="colEmployee" text="Bénéficiaire" prefWidth="170" />
+                    <TableColumn fx:id="colCin" text="N° CIN" prefWidth="100" />
+                    <TableColumn fx:id="colDate" text="Date &amp; Heure" prefWidth="140" />
+                </columns>
+            </TableView>
+        </VBox>
+
+        <!-- Chart Container -->
+        <VBox styleClass="card" spacing="15" prefWidth="380">
+            <Label text="Distribution par Type" styleClass="card-title" />
+            <PieChart fx:id="docDistributionChart" legendVisible="true" VBox.vgrow="ALWAYS" />
+        </VBox>
+    </HBox>
+
+</VBox>

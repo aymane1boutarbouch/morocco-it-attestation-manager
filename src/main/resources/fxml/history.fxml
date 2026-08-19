@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.moroccoit.attestation.controller.HistoryController"
+      spacing="20">
+
+    <!-- SEARCH & ACTION TOOLBAR -->
+    <HBox styleClass="card" alignment="CENTER_LEFT" spacing="15">
+        <TextField fx:id="searchField" promptText="🔍 Rechercher dans l'historique (N° Réf, Nom, CIN, Type, Motif...)" prefWidth="450" styleClass="text-field" />
+
+        <HBox HBox.hgrow="ALWAYS" alignment="CENTER_RIGHT" spacing="12">
+            <Button text="👁️  Ouvrir &amp; Visualiser PDF" onAction="#handleViewPdf" styleClass="button-accent" />
+            <Button text="💾  Ré-exporter PDF" onAction="#handleReExportPdf" styleClass="button-secondary" />
+            <Button text="🗑️  Effacer Archive" onAction="#handleDeleteRecord" styleClass="button-danger" />
+        </HBox>
+    </HBox>
+
+    <!-- ARCHIVE HISTORY TABLE -->
+    <VBox styleClass="card" VBox.vgrow="ALWAYS" spacing="10">
+        <Label text="Registre Archivé des Attestations Générées" styleClass="card-title" />
+        <TableView fx:id="historyTable" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colRef" text="Référence N°" prefWidth="130" />
+                <TableColumn fx:id="colType" text="Type d'Attestation" prefWidth="170" />
+                <TableColumn fx:id="colEmpName" text="Nom &amp; Prénom Bénéficiaire" prefWidth="190" />
+                <TableColumn fx:id="colEmpCin" text="N° CIN" prefWidth="100" />
+                <TableColumn fx:id="colGeneratedBy" text="Généré par" prefWidth="110" />
+                <TableColumn fx:id="colDate" text="Date &amp; Heure" prefWidth="140" />
+                <TableColumn fx:id="colPurpose" text="Motif / Destination" prefWidth="160" />
+                <TableColumn fx:id="colHash" text="Code QR Verif" prefWidth="120" />
+            </columns>
+        </TableView>
+    </VBox>
+
+</VBox>

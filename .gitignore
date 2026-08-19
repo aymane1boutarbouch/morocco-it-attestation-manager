@@ -1,0 +1,9 @@
+target/
+*.log
+morocco_it.db
+.DS_Store
+.idea/
+*.iml
+.classpath
+.project
+.settings/
